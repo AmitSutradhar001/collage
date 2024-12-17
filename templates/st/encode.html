@@ -1,0 +1,99 @@
+{% extends "base.html" %} {% block title %}
+<title>Encode Page</title>
+{% endblock title %} {% block body %}
+<div class="flex justify-center">
+  <div class="max-w-4xl mx-auto w-full mt-10 p-6 bg-white shadow-lg rounded-lg">
+    <!-- Header -->
+    <h1 class="text-4xl font-bold text-center text-gray-800 mb-6">
+      Steganography Online
+    </h1>
+
+    <!-- Tab Navigation -->
+    <div class="flex mb-6 border-b">
+      <a
+        class="py-2 px-6 border-b-2 border-blue-500 text-blue-500 font-semibold"
+      >
+        Encode
+      </a>
+      <a class="py-2 px-6 text-gray-500 font-semibold" href="{% url 'decode' %}"
+        >Decode</a
+      >
+    </div>
+
+    <!-- Encode Message Section -->
+    <h2 class="text-2xl font-bold mb-4 text-gray-800">Encode message</h2>
+    <div class="bg-blue-100 p-4 rounded-md mb-6 text-gray-700">
+      <p>
+        To encode a message into an image, choose the image you want to use,
+        enter your text, and hit the <strong>Encode</strong> button. Save the
+        last image; it will contain your hidden message.
+      </p>
+      <p class="mt-2">
+        Remember, the more text you want to hide, the larger the image has to
+        be.
+      </p>
+      <p class="mt-2">All the magic happens within the <strong>Web</strong>.</p>
+      <p class="mt-2">
+        You can <strong>download</strong> the encoded image, save it locally,
+        decode it in the future, or <strong>share</strong> it.
+      </p>
+    </div>
+
+    <!-- File Upload and Message Input -->
+    <form
+      action=""
+      method="POST"
+      enctype="multipart/form-data"
+      class="space-y-6"
+    >
+      {% csrf_token %}
+      <!-- File Upload -->
+      <div>
+        <label for="file-upload" class="block text-gray-700 font-semibold mb-2">
+          Choose File
+        </label>
+        {{ form.img }}
+      </div>
+
+      <!-- Textarea -->
+      <div>
+        <label for="message" class="block text-gray-700 font-semibold mb-2">
+          Enter your message here
+        </label>
+        {{ form.message }}
+      </div>
+
+      <!-- Submit Button -->
+      <button
+        type="submit"
+        class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-md shadow-sm"
+      >
+        Encode
+      </button>
+    </form>
+
+    <!-- Image Display Section -->
+    {% if success %}
+    <div class="mt-6 text-center">
+      <h3 class="text-xl font-bold text-gray-800">Encoded Image</h3>
+      <img
+        src="{{ image_url }}"
+        alt="Uploaded Image"
+        class="mx-auto mt-4 max-w-80 max-h-96 rounded-md border-blue-800 border-2 shadow-2xl shadow-blue-700 p-5"
+      />
+
+      <!-- Download Button -->
+      <div class="mt-4">
+        <a
+          href="{{ download_url }}"
+          download="encoded_image.png"
+          class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-6 rounded-md shadow-sm"
+        >
+          Download
+        </a>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock body %}

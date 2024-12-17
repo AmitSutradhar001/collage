@@ -1,0 +1,51 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.sqlite3
+*.log
+
+# Django
+*.log
+*.pot
+*.pyc
+*.pyo
+*.db
+*.sqlite3
+local_settings.py
+db.sqlite3
+media
+
+# Virtual Environment
+venv/
+.env/
+.venv/
+.env/
+env/
+env.bak/
+venv.bak/
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Coverage
+.coverage
+*.cover
+
+# Django migrations
+*/migrations/*
+
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db
