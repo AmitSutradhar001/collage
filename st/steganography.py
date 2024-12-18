@@ -85,3 +85,7 @@ def decode_image(encoded_image):
             decoded_text += chr(b)
 
     return decoded_text  # Return decoded text even if no delimiter was found
+
+
+# # 08071176059
+# academic@onlineuu.in

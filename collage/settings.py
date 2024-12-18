@@ -17,9 +17,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Access the Cloudinary credentials from the .env file
-CLOUDINARY_CLOUD_NAME = os.getenv('CLOUDINARY_CLOUD_NAME')
-CLOUDINARY_API_KEY = os.getenv('CLOUDINARY_API_KEY')
-CLOUDINARY_API_SECRET = os.getenv('CLOUDINARY_API_SECRET')
+CLOUDINARY_CLOUD_NAME = os.getenv('CLOUDINARY_CLOUD_NAME','dzely4n74')
+CLOUDINARY_API_KEY = os.getenv('CLOUDINARY_API_KEY', '783933664591926')
+CLOUDINARY_API_SECRET = os.getenv('CLOUDINARY_API_SECRET','TbBeQ1RyRvfsmwDt1SHOllQ2m1o')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,12 +30,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-niw_5e619v5i*n5qi-@!%c!uc+2_9r=5ws+ow)bvkvegg2jfb9')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['amitsutradhar5075.pythonanywhere.com','127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
